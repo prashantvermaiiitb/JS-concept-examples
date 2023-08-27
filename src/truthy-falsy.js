@@ -24,3 +24,23 @@ if (money) {
 } else {
     console.log(`You have spent all the money !!`);
 }
+
+/**
+ * == performs type coercion i.e. convert string to number  '18' == 18 => true
+ * === perform strict equality check like '18' === 18 => false
+ */
+
+//! this will run only in the browser not in the Node console.
+const input = Number(prompt('Please enter the number that you want to compare ?'));
+
+if ('18' === 18) {
+    console.log('Numbers are equal!!');
+} else {
+    console.log('Numbers are not-equal!!(Strict equality)');
+}
+
+if ('18' == 18) {
+    console.log('Numbers are equal!!(loosely equality)');
+} else {
+    console.log('Numbers are not-equal!!');
+}

@@ -34,7 +34,19 @@ console.log(`BMI for John : ${BMIJohn}`);
 const markHigherBMI = BMIMark > BMIJohn;
 
 if (markHigherBMI) {
-    console.log(`Mark has higher BMI than John`);
-}else {
-    console.log(`John has higher BMI than Mark`);
+    console.log(`Mark has higher BMI than John ❤️`);
+} else {
+    console.log(`John has higher BMI than Mark ✌️`);
 }
+
+console.log('This is a \n\
+multi-line \n\
+comment \n\
+from template \n\
+literal.')
+
+console.log(` This is a 
+multi-line 
+comment
+from template 
+literal.`)

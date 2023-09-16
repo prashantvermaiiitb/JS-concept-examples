@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Guessing Game</title>
+    <link rel="stylesheet" href="./guess.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <button id="resetGame">Again !!</button>
+        <div class="range-text"></div>
+      </div>
+      <h2 class="guess-text">Guess My Number</h2>
+      <div class="guess-number-container">
+        <span class="guess-number"></span>
+      </div>
+      <div class="result-container">
+        <div class="input-container">
+          <input
+            style="width: 100px"
+            type="number"
+            min="1"
+            max="20"
+            id="userGuess"
+          />
+          <button id="checkGuess">Check!</button>
+        </div>
+        <div class="results">
+          <div>
+            <span class="result-title">State:</span
+            ><span class="result-text">Guessing ....</span>
+          </div>
+          <div>
+            <span>Score:</span
+            ><span style="margin-left: 10px" class="score"></span>
+          </div>
+          <div>
+            <span class="high-score-title">High Score:</span>
+            <span class="high-score"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="./guess.js"></script>
+  </body>
+</html>

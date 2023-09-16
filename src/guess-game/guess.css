@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: fantasy;
+}
+body {
+  background-color: #cacaca;
+}
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.header button {
+  width: 50%;
+  padding: 10px;
+}
+
+.range-text {
+  text-align: right;
+  font-size: 25px;
+  text-transform: capitalize;
+  font-weight: lighter;
+}
+.guess-text {
+  text-align: center;
+  font-size: 30px;
+}
+
+.guess-number-container {
+  text-align: center;
+  margin: 10px 0;
+}
+.guess-number-container .guess-number {
+  border: 1px solid #eaeaea;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.result-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 50px;
+}
+
+.results {
+  display: grid;
+  grid-row-gap: 20px;
+}
+
+.result-text {
+  margin-left: 10px;
+  font-size: 30px;
+  /* font-family: fantasy; */
+}

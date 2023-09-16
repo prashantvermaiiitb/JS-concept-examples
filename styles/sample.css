@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  /*This will make width to include padding and border inside the width always.*/
+  box-sizing: border-box;
+}
+img {
+  width: 100px;
+  height: 100px;
+}
+
+div {
+  width: 400px;
+  padding: 10px;
+}

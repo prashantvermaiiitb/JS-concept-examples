@@ -1,15 +1,16 @@
+const RANGE = {
+    MINIMUM: 0,
+    MAXIMUM: 100,
+    selector: '.range-text'
+};// range
+
 const SCORE = {
-    MAX: 20,
+    MAX: RANGE.MAXIMUM,
     HIGH: 0,
-    DEFAULT: 20,
+    DEFAULT: RANGE.MAXIMUM,
     selector: '.score',
     selector_high: '.high-score'
 };
-const RANGE = {
-    MINIMUM: 0,
-    MAXIMUM: 20,
-    selector: '.range-text'
-};// range
 const GAME_STATE = {
     start: 'start',
     wip: 'wip',
@@ -136,6 +137,46 @@ window.guessGame = function () {
         }
         this.updateScore(this.score);
     }
+
+    this.showHint = () => {
+        console.log("🚀 ~ file: guess.js:143 ~ this.hintCount:", this.hintCount);
+        let userGuess = this.getElement(GUEST_CTRL.userInput).value;
+        if (userGuess === "" || isNaN(userGuess)) {
+            return this.handleNoInput();
+        }
+        // if (this.hintCount === 1 || this.hintCount === 2) {
+        // let divArray = [];
+        const circleContainer = this.getElement('.circle-container');
+        circleContainer.textContent = '';
+        if (userGuess > this.guessedNumber) {
+            let temp = 0;
+            while (temp < userGuess) {
+                const div = document.createElement('div');
+                div.setAttribute('class', 'circle');
+                div.textContent = temp;
+                // divArray.push(div);
+                circleContainer.appendChild(div);
+                temp++;
+            }
+        } else {
+            let temp = userGuess;
+            while (temp <= RANGE.MAXIMUM) {
+                const div = document.createElement('div');
+                div.setAttribute('class', 'circle');
+                div.textContent = temp;
+                // divArray.push(div);
+                circleContainer.appendChild(div);
+                temp++;
+            }
+        }
+        this.hintCount--;
+        this.getElement('#checkGuess').click();
+        // } else {
+        //     this.getElement('.hint_text_warning ').style.display = 'block';
+        //     this.getElement('.hint_text_warning ').textContent = 'All hints are given 🤩 please use your 🧠!!'
+        //     this.getElement('#hints').disabled = 1;
+        // }
+    }
     /**
      * Attaching events
      */
@@ -145,19 +186,25 @@ window.guessGame = function () {
         });
         this.getElement('#resetGame').addEventListener('click', (event) => {
             this.resetGame();
-        })
+        });
+        this.getElement('#hints').addEventListener('click', (event) => {
+            this.showHint();
+        });
     };
     /**
      * Initialise guessed number
      */
     this.initGuessedNumber = () => {
-        this.guessedNumber = Math.trunc(Math.random() * 20);
+        this.guessedNumber = Math.trunc(Math.random() * RANGE.MAXIMUM);
     }
     /**
      * Intial Guess string to start the game
      */
     this.initGuessNumberString = () => {
         this.getElement(GUEST_CTRL.selector_guessnumber).textContent = '??';
+    }
+    this.initHint = () => {
+        this.hintCount = 2;
     }
     /**
      * Initialising the guess game
@@ -170,6 +217,7 @@ window.guessGame = function () {
         this.updateRangeText(RANGE.MINIMUM, RANGE.MAXIMUM);
         this.updateScore(this.score);
         this.updateHighScore(this.highScore);
+        this.initHint();
         this.attachEvents();
     }
     /**
@@ -185,23 +233,25 @@ window.guessGame = function () {
         input.focus();
         this.initGuessedNumber();
         this.initGuessNumberString();
+        this.getElement('#checkGuess').getAttribute('disabled');
         // this will be there when score is 1 and user has not guessed it properly.
         this.getElement(GUEST_CTRL.checkBtn).removeAttribute('disabled');
+        //hint reset
+        this.getElement('#hints').removeAttribute('disabled');
+        this.getElement('.hint_text_warning ').textContent = ''
+        this.hintCount = 2;
+        this.getElement('.circle-container').textContent = '';
     }
     /**
-     * calculating score from user input 
-     */
-    this.calculateScore = function () {
-
-    }
-    /**
-     * handling user win or user loss in the game 
-     */
+    * handling user win or user loss in the game 
+    */
     this.handleWinOrLoss = function (win) {
         document.body.style.backgroundColor = win ? '#60b347' : '#d66262';
         this.getElement(GUEST_CTRL.userInput).disabled = 1;
         this.getElement(GUEST_CTRL.selector_result).textContent = GAME_STATE_STRING.win;
         this.getElement(GUEST_CTRL.selector_guessnumber).textContent = this.guessedNumber;
+        this.getElement('#checkGuess').disabled = 1;
+        this.getElement('#hints').disabled = 1;
         const currentHighScore = this.getElement(SCORE.selector_high).textContent;
         // take high score only when current one is less than the new one
         if (currentHighScore < this.score) {

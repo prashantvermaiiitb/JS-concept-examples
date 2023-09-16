@@ -17,13 +17,14 @@
       <div class="result-container">
         <div class="input-container">
           <input
-            style="width: 100px"
+            style="width: 250px"
             type="number"
             min="1"
             max="20"
             id="userGuess"
           />
           <button id="checkGuess">Check!</button>
+          <button id="hints">Hint!</button>
         </div>
         <div class="results">
           <div>
@@ -40,6 +41,8 @@
           </div>
         </div>
       </div>
+      <div style="display: flex" class="circle-container"></div>
+      <div class="hint_text_warning"></div>
     </div>
     <script type="text/javascript" src="./guess.js"></script>
   </body>

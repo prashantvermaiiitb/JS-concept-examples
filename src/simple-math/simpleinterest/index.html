@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profit & Loss Calculator</title>
+    <style>
+      body {
+        background-color: #cacaca;
+        margin: 30px;
+        font-size: 30px;
+        font-family: fantasy;
+      }
+      input {
+        width: 100px;
+        padding: 10px 0;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div>
+        <span>Enter Cost Price</span>
+        <input
+          type="number"
+          name="cost-price"
+          id="cost-price"
+          min="0"
+          max="999"
+        />
+      </div>
+      <div>
+        <span>Enter Selling Price</span>
+        <input
+          type="number"
+          name="selling-price"
+          id="selling-price"
+          min="0"
+          max="999"
+        />
+      </div>
+      <button id="calculate">Calculate Profit or Loss</button>
+      <div id="result" class="result"></div>
+    </div>
+    <script type="text/javascript">
+      document
+        .getElementById("calculate")
+        .addEventListener("click", function (event) {
+          const sp = document.getElementById("selling-price").value;
+          const cp = document.getElementById("cost-price").value;
+          const profitOrLoss = sp - cp;
+          let result;
+          if (profitOrLoss < 0) {
+            result = `You are in loss of Rs.${-1 * profitOrLoss} 😭😞`;
+          } else {
+            result = `You have a profit of Rs.${profitOrLoss} 🎉🥳`;
+          }
+          document.getElementById("result").textContent = result;
+        });
+    </script>
+  </body>
+</html>

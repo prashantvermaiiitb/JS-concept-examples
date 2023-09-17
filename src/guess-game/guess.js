@@ -4,6 +4,7 @@ const RANGE = {
     selector: '.range-text'
 };// range
 
+/** @type {*} */
 const SCORE = {
     MAX: RANGE.MAXIMUM,
     HIGH: 0,
@@ -22,7 +23,6 @@ const GUEST_CTRL = {
     selector_result: '.result-text',
     selector_guessnumber: '.guess-number'
 }
-
 const GAME_STATE_STRING = {
     win: '!! 🎉 You won 🏆!!',
     wip: '🤔 Guessing ... 🏃‍♂️🏃‍♂️🏃‍♂️',
@@ -31,7 +31,9 @@ const GAME_STATE_STRING = {
     loss: `You lost the game 😩😰!!`
 }
 /**
+ *
  * Guessing game main function object
+ * @return {*} 
  */
 window.guessGame = function () {
 
@@ -203,6 +205,7 @@ window.guessGame = function () {
     this.initGuessNumberString = () => {
         this.getElement(GUEST_CTRL.selector_guessnumber).textContent = '??';
     }
+
     this.initHint = () => {
         this.hintCount = 2;
     }

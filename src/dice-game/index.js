@@ -8,6 +8,7 @@ playerOne.init(activePlayer === 1);
 playerTwo.init(activePlayer === 2);
 
 document.getElementById('reset_game').addEventListener('click', () => {
+    playAudioMessage(`Resetting the game ... assuming this is not accidental`);
     window.location.reload();
 })
 // ['hold', 'one'].forEach(event => {

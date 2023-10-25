@@ -12,7 +12,7 @@
 
 const calculateDogAgeInHumanYears = function (dogAgeArray) {
     const dogAgeInHumanYears = dogAgeArray.map((dogAge) => dogAge <= 2 ? 2 * dogAge : 16 + (dogAge * 4));
-    // console.log("🚀 ~ file: code-challenge-16.js:15 ~ calculateDogAgeInHumanYears ~ dogAgeInHumanYears:", dogAgeInHumanYears);
+    3    // console.log("🚀 ~ file: code-challenge-16.js:15 ~ calculateDogAgeInHumanYears ~ dogAgeInHumanYears:", dogAgeInHumanYears);
 
     const adultDogAges = dogAgeInHumanYears.filter(dogAge => dogAge > 18);
     // console.log("🚀 ~ file: code-challenge-16.js:18 ~ calculateDogAgeInHumanYears ~ adultDogAges:", adultDogAges);

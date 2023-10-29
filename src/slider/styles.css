@@ -1,0 +1,30 @@
+.personal-info {
+  display: grid;
+  grid-template-columns: 25% 1fr;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.avatar {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background-color: red;
+}
+.table {
+  border: 1px solid #cacaca;
+  padding: 10px;
+  margin-right: 10px;
+}
+.slider {
+  /* position: relative; */
+  /* width: 800px; */
+  overflow: hidden;
+}
+/* .slide {
+  position: absolute; */
+/* } */
+.navigation {
+  padding: 20px;
+}

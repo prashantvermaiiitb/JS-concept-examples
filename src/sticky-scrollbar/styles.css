@@ -1,0 +1,30 @@
+section {
+  padding: 20px;
+  /* background-color: aliceblue; */
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 20px;
+}
+.separator-div {
+  height: 40px;
+}
+ul {
+  list-style: none;
+  display: flex;
+  column-gap: 10px;
+  /* flex-flow: row-reverse; */
+  justify-content: flex-end;
+  margin: 0;
+  > li {
+    border-radius: 50%;
+    background-color: red;
+    padding: 10px;
+  }
+}
+.static_position {
+  display: flex;
+  align-items: baseline;
+  padding: 20px;
+  position: fixed;
+  background: white;
+  width: 100vh;
+}

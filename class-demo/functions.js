@@ -62,6 +62,16 @@ console.log(`Still function called from Object...`, person3.getFullName());
 console.log(`now function called from Prototype chain...`, person3.getFullNameViaPc());
 console.dir(person2);
 
+/**
+ * Adding function to the constructor of JS, this will be 
+ * acting as static function for all of the objects created 
+ * from the person.
+ */
+Person.constructor = function introduce() {
+    console.log(this);
+    console.log(`I am ${this.firstName}.${this.lastName} working as ${this.profession}`);
+}
+
 console.log('-'.repeat(100));
 
 
